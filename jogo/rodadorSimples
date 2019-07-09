@@ -1,0 +1,53 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class rodadorSimples : MonoBehaviour
+{
+    // Start is called before the first frame update
+
+    private float speed=0.1f;
+    private bool lado = true;
+    private float acumulado = 0;
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (lado)
+        {
+            transform.Rotate(0, speed, 0);
+        }
+        else
+        {
+            transform.Rotate(0, -speed, 0);
+        }
+        
+        acumulado = acumulado + speed ;
+        if (acumulado>20)
+        {
+            acumulado = 0;
+            if (lado)
+                lado = false;
+            else
+                lado = true;
+        }
+
+
+
+
+/*        if (transform.rotation[2] <30)
+        {
+            graus=0;
+            if (lado == true)
+                lado = false;
+            else
+                lado = true;
+        }*/
+
+
+    }
+}
